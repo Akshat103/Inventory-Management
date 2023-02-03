@@ -1,0 +1,29 @@
+register users page
+name
+email
+mobile
+collage
+year
+password
+
+login user page
+mobile
+password
+
+add product
+byUser
+	(
+	photo
+	name
+	price
+	condition
+	)
+
+from frontend
+	(
+	user name
+	)
+
+
+
+
