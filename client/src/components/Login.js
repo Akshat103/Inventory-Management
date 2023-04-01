@@ -14,8 +14,7 @@ const Login=()=>{
     },[])
 
     const handlelogin=async()=>{
-        console.warn("email,password",email,password);
-        let result = await fetch('http://127.0.0.1:5000/login',{
+        let result = await fetch('http://172.20.96.1:5000/api/signin',{
             method:'POST',
             body:JSON.stringify({email,password}),
             headers:{
@@ -23,9 +22,9 @@ const Login=()=>{
             }
         });
         result = await result.json();
-        console.warn(result);
-        if(result.name){
-            localStorage.setItem('user',JSON.stringify(result));
+        if(result.token){
+            localStorage.setItem('user',JSON.stringify(result.user));
+            localStorage.setItem('token',JSON.stringify(result.token));
             navigate('/');
         }
         else{

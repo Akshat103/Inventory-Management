@@ -16,7 +16,7 @@ const SignUp=()=>{
 
     const collectData= async()=>{
         console.warn(name,email,password);
-        let result = await fetch('http://127.0.0.1:5000/register', {
+        let result = await fetch("http://172.20.96.1:5000/api/signup", {
             method:'POST',
             body:JSON.stringify({name,email,password}),
             headers:{
@@ -25,7 +25,8 @@ const SignUp=()=>{
         })
         result = await result.json();
         console.warn(result);
-        localStorage.setItem('user',JSON.stringify(result));
+        localStorage.setItem('user',JSON.stringify(result.result));
+        localStorage.setItem('token',JSON.stringify(result.auth));
         navigate('/');
     }
 
