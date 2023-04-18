@@ -1,7 +1,7 @@
 import './App.css';
-import Nav from './components/Navbar/Nav';
+import Nav from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import AddProduct from './components/AddProduct';
 import ProductList from './components/ProductList';
 import SignUp from './components/SignUp';

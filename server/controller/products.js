@@ -1,5 +1,6 @@
 const { json } = require("express");
 const productModel = require("../models/products");
+const { toTitleCase } = require("../config/functions")
 
 class Product {
 
@@ -52,6 +53,9 @@ class Product {
         }
         else {
             try {
+                name = toTitleCase(name);
+                category = toTitleCase(category);
+                company = toTitleCase(company);
                 let newProduct = new productModel({
                     name,
                     price,
@@ -87,6 +91,9 @@ class Product {
             });
         }
         else {
+            name = toTitleCase(name);
+            category = toTitleCase(category);
+            company = toTitleCase(company);
             let editData = {
                 name,
                 price,
@@ -124,10 +131,12 @@ class Product {
 
     async getSearchProduct(req, res) {
         let key = req.params.key;
+
         if (!key) {
             return res.json({ error: "All filled must be required" });
         } else {
             try {
+                key = toTitleCase(key);
                 let products = await productModel
                     .find({
                         '$or': [

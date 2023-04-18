@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import "./Nav.css";
 import { useEffect, useRef, useState } from "react";
+
 
 export const Nav = () => {
   const lastScrollTop = useRef(0);
@@ -31,7 +31,7 @@ export const Nav = () => {
     const logo = require("../../images/logo.PNG")
     const logout = () => {
         localStorage.clear();
-        navigate('/signup');
+        navigate('/login');
     }
 
     return (
@@ -41,7 +41,7 @@ export const Nav = () => {
                 auth ? <ul className='nav-ul'>
                     <li><Link to='/'>Product</Link></li>
                     <li><Link to='/add'>Add Product</Link></li>
-                    <li><Link onClick={logout} to='/signup'>Logout</Link></li>
+                    <li><Link onClick={logout} to='/login'>Logout</Link></li>
                 </ul>
                     :
                     <ul className='nav-ul nav-right'>

@@ -17,7 +17,7 @@ const AddProduct = () => {
         }
 
         const userID = JSON.parse(localStorage.getItem('user'))._id;
-        let result = await fetch("http://172.20.96.1:5000/api/product/add-product", {
+        let result = await fetch("http://localhost:5000/api/product/add-product", {
             method: "POST",
             body: JSON.stringify({ name, price, category, company, userID }),
             headers: {

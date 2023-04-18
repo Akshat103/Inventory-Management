@@ -13,7 +13,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = async()=>{
         console.warn(params);
-        let result = await fetch(`http://172.20.96.1:5000/api/product/single-product/${params.id}`,
+        let result = await fetch(`http://localhost:5000/api/product/single-product/${params.id}`,
         {
             headers: {
                 auth:`bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
         }
 
         const userID = JSON.parse(localStorage.getItem('user'))._id;
-        let result = await fetch(`http://172.20.96.1:5000/api/product/edit-product/${params.id}`, {
+        let result = await fetch(`http://localhost:5000/api/product/edit-product/${params.id}`, {
             method: "POST",
             body: JSON.stringify({ name, price, category, company, userID }),
             headers: {

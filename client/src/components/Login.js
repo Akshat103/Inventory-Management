@@ -14,7 +14,7 @@ const Login=()=>{
     },[])
 
     const handlelogin=async()=>{
-        let result = await fetch('http://172.20.96.1:5000/api/signin',{
+        let result = await fetch('http://localhost:5000/api/signin',{
             method:'POST',
             body:JSON.stringify({email,password}),
             headers:{
