@@ -19,9 +19,6 @@ import {
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
-const LogedInLinks = ['Dashboard'];
-const SignUpLinks = ['Signin', 'Signup'];
-
 interface NavLinkProps {
   children: ReactNode;
   href: string;
@@ -76,45 +73,22 @@ const Navbar = () => {
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              {auth ?
-                <NavLink href="/">Dashboard</NavLink>
-              : 
-              <>
-              <NavLink href="/login">Signin</NavLink>
-              <NavLink href="/signup">SignUp</NavLink>
-              </>
+              {
+                auth ?
+                <>
+                  <NavLink href="/">Dashboard</NavLink>
+                  <Button onClick={logout} justifyItems={'right'}>Logout</Button>
+                </>
+                :
+                <>
+                  <NavLink href="/login">Signin</NavLink>
+                  <NavLink href="/signup">SignUp</NavLink>
+                </>
 }
             </HStack>
           </HStack>
-          <Flex alignItems={'center'}>
-
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}>
-              </MenuButton>
-              {/* <MenuList>
-                <MenuItem>"/"</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList> */}
-            </Menu>
-          </Flex>
         </Flex>
 
-        {/* {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null} */}
       </Box>
     </>
   );

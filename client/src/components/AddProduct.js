@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import { Stack, Input, Button } from '@chakra-ui/react'
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+} from '@chakra-ui/react'
 
 const AddProduct = () => {
 
@@ -22,7 +29,7 @@ const AddProduct = () => {
             body: JSON.stringify({ name, price, category, company, userID }),
             headers: {
                 'Content-Type': 'application/json',
-                auth:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+                auth: `bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
         });
         result = await result.json();
@@ -35,8 +42,20 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='addProduct'>
+        <div className='addProduct' >
             <h3>Add product</h3>
+
+            <Stack spacing={3}>
+                <Input variant='outline' placeholder='Product Name' value={name}
+                onChange={(e) => { setName(e.target.value) }} />
+                {error && !name && <span>Enter valid Name</span>}
+                <Input variant='outline' placeholder='Outline' />
+                <Input variant='outline' placeholder='Outline' />
+                <Input variant='outline' placeholder='Outline' />
+                <Button onClick={addProduct}>Add</Button>
+            </Stack>
+
+            {/* 
             <input type='text' placeholder='Product Name' value={name} onChange={(e) => { setName(e.target.value) }} />
             {error && !name && <span>Enter valid Name</span>}
             <input type='text' placeholder='Product Price' value={price} onChange={(e) => { setPrice(e.target.value) }} />
@@ -45,7 +64,8 @@ const AddProduct = () => {
             {error && !category && <span>Enter valid Category</span>}
             <input type='text' placeholder='Product Company' value={company} onChange={(e) => { setCompany(e.target.value) }} />
             {error && !company && <span>Enter valid Company</span>}
-            <button className='button' onClick={addProduct}>Add</button>
+            <button className='button' onClick={addProduct}>Add</button> */}
+
         </div>
     )
 }
