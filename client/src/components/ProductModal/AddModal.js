@@ -1,8 +1,8 @@
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from "@chakra-ui/react";
-import { FormControl, FormLabel, useState } from 'react';
+import { useState } from 'react';
 import { Stack, Input, Button } from '@chakra-ui/react';
 
-const MyModal = ({ isOpen, onClose }) => {
+const AddProduct = ({ isOpen, onClose }) => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
@@ -76,4 +76,4 @@ const MyModal = ({ isOpen, onClose }) => {
     );
 };
 
-export default MyModal;
+export default AddProduct;

@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react';
-import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
 const SocialButton = ({
@@ -55,16 +55,16 @@ const Footer = () => {
         spacing={4}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
-        <Text>© 2023 Akshat Tamrakar All rights reserved</Text>
+        <Text>© 2023 A3 All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
-          <SocialButton label={'GitHub'} href={'#'}>
+          <SocialButton label={'GitHub'} href={'https://github.com/akshat103'}>
             <FaGithub />
           </SocialButton>
-          <SocialButton label={'LinkedIn'} href={'#'}>
+          <SocialButton label={'LinkedIn'} href={'https://www.linkedin.com/in/akshat-tamrakar08'}>
             <FaLinkedinIn />
           </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
-            <FaInstagram />
+          <SocialButton label={'Twitter'} href={'https://twitter.com/anotherakshat'}>
+            <FaTwitter />
           </SocialButton>
         </Stack>
       </Container>

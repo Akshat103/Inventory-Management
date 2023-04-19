@@ -7,16 +7,10 @@ import {
   Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
-  useColorModeValue,
-  Stack,
+  useColorModeValue
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
 interface NavLinkProps {
@@ -64,27 +58,28 @@ const Navbar = () => {
           />
           <HStack spacing={8} alignItems={'center'}>
             <Box><Avatar
-                  size={'sm'}
-                  src={
-                    logo
-                  }
-                /></Box>
+              size={'md'}
+              src={
+                logo
+              }
+              href={'/'}
+            /></Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {
+
                 auth ?
-                <>
-                  <NavLink href="/">Dashboard</NavLink>
-                  <Button onClick={logout} justifyItems={'right'}>Logout</Button>
-                </>
-                :
-                <>
-                  <NavLink href="/login">Signin</NavLink>
-                  <NavLink href="/signup">SignUp</NavLink>
-                </>
-}
+                  <>
+                    <NavLink href="/">Dashboard</NavLink>
+                    <Box position="absolute" right="2rem" >
+                      <Button onClick={logout} >Logout</Button>
+                    </Box>
+                  </>
+                  :
+                  <></>
+              }
             </HStack>
           </HStack>
         </Flex>

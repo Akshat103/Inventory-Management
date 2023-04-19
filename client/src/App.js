@@ -2,12 +2,12 @@ import './App.css';
 import Nav from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
-import AddProduct from './components/AddProduct';
-import ProductList from './components/ProductList';
-import SignUp from './components/SignUp';
-import PrivateRoute from './components/PrivateComponent';
-import Login from './components/Login';
-import UpdateProduct from './components/UpdateProduct';
+import ProductList from './components/ProductList/ProductList';
+import SignUp from './components/auth/SignUp';
+import PrivateRoute from './components/auth/PrivateComponent';
+import Login from './components/auth/Login';
+import NotFound from './components/NotFound/NotFound';
+
 
 function App() {
   return (
@@ -17,13 +17,11 @@ function App() {
         <Routes>
           <Route element={<PrivateRoute />}>
             <Route path='/' element={<ProductList />} />
-            <Route path='/add' element={<AddProduct />} />
-            <Route path='/update/:id' element={<UpdateProduct />} />
-            <Route path='/logout' element={<h1>Logout component</h1>} />
           </Route>
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='*' element={<h1>NOT FOUND</h1>}></Route>
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='*' element={<NotFound />}>
+          </Route>
         </Routes>
       </BrowserRouter>
 

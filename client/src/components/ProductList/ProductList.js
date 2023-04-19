@@ -1,4 +1,5 @@
-import React, { ReactElement, ReactNode, useEffect, useState } from "react";
+import './styles.css';
+import React, { useEffect, useState } from "react";
 import {
     Button,
     Input,
@@ -10,17 +11,18 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
     TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
-import { DeleteIcon, RepeatIcon, AddIcon } from '@chakra-ui/icons'
+import { DeleteIcon,  AddIcon } from '@chakra-ui/icons'
 import { Search2Icon } from "@chakra-ui/icons";
-import { Link } from 'react-router-dom';
-import MyModal from './AddModel.js'
+import AddProduct from '../ProductModal/AddModal.js'
+import UpdateModal from "../ProductModal/UpdateModal.js";
+
+
 
 const ProductList = () => {
 
@@ -33,8 +35,6 @@ const ProductList = () => {
     const handleCloseModal = () => {
         setIsOpen(false);
     };
-
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -105,7 +105,7 @@ const ProductList = () => {
             </>
 
             <Button onClick={handleOpenModal}><AddIcon /></Button>
-            <MyModal isOpen={isOpen} onClose={handleCloseModal} />
+            <AddProduct isOpen={isOpen} onClose={handleCloseModal} />
 
             {
                 products.length > 0 ?
@@ -135,9 +135,11 @@ const ProductList = () => {
                                                     onClick={() => deleteProduct(item._id)}>
                                                     <DeleteIcon />
                                                 </Button>
-                                                <Button>
+                                                {/* <Button >
                                                     <Link to={'/update/' + item._id}><RepeatIcon /></Link>
-                                                </Button>
+                                                </Button> */}
+
+                                                <UpdateModal data={item} />
                                             </Td>
                                         </Tr>)
                                 }
@@ -147,33 +149,6 @@ const ProductList = () => {
                     :
                     <h1>NO PRODUCT FOUND</h1>
 
-                // products.length > 0 ?
-                //     <ul className="responsive-table">
-                //         <li className="table-header">
-                //             <div className="col col-1">S. No</div>
-                //             <div className="col col-2">Name</div>
-                //             <div className="col col-3">Price</div>
-                //             <div className="col col-4">Category</div>
-                //             <div className="col col-4">Delete</div>
-                //         </li>
-                //         {products.map((item, index) =>
-                //             <li className="table-row" key={item._id}>
-                //                 <div className="col col-1" >{index + 1}</div>
-                //                 <div className="col col-2" >{item.name}</div>
-                //                 <div className="col col-3" >{item.price}</div>
-                //                 <div className="col col-4" >{item.category}</div>
-                //                 <div className="col col-4" >
-                //                     <button className="btn btn-delete"
-                //                         onClick={() => deleteProduct(item._id)}>
-                //                         Delete
-                //                     </button>
-                //                     <Link to={'/update/' + item._id}>Update</Link>
-                //                 </div>
-
-                //             </li>)}
-                //     </ul>
-                //     :
-                //     <h1>NO PRODUCT FOUND</h1>
             }
         </div>
     )
