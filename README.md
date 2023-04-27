@@ -30,7 +30,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+![Screen Shot](images/screenshot.PNG)
 
 The inventory management system is a web-based project built using the MERN stack, which comprises MongoDB, Express, React, and Node.js. The front-end is built using Chakra UI, which provides a sleek and modern user interface. The system is designed to manage inventory by multiple users in a secure and efficient manner.
 
